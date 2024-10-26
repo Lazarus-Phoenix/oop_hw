@@ -14,3 +14,4 @@ def reset_product_count():
     original_count = Category.product_count
     yield
     Category.product_count = original_count
+
