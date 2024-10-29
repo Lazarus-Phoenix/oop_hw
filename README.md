@@ -1,5 +1,5 @@
 # Проект OOP Homework
-![Image alt](https://github.com/Lazarus-Phoenix/oop_hw/edit/feature/README.mdhtmlcov/Screenshot 2024-10-29 at 19-55-41 Coverage report.png)
+![Image alt](https://github.com/Lazarus-Phoenix/oop_hw/edit/feature/README.md/htmlcov/Screenshot 2024-10-29 at 19-55-41 Coverage report.png)
 
 Этот проект представляет собой домашнюю работу базовый пример использования объектно-ориентированного программирования (OOP) в Python.
 
