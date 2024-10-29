@@ -1,8 +1,9 @@
 class Product:
     """Класс для представления продукта"""
+
     name: str
     description: str
-    price: float
+    price: int
     quantity: int
 
     def __init__(self, name, description, price, quantity):
@@ -12,16 +13,15 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     @classmethod
     def new_product(cls, dict_product, products=None):
-        """ Метод добавляет новый продукт """
+        """Метод добавляет новый продукт"""
         if products:
             for product in products:
-                if product.name == dict_product['name']:
-                    product.description = dict_product['description']
-                    product.quantity += dict_product['quantity']
-                    product.price = max([product.price, dict_product['price']])
+                if product.name == dict_product["name"]:
+                    product.description = dict_product["description"]
+                    product.quantity += dict_product["quantity"]
+                    product.price = max([product.price, dict_product["price"]])
                     return product
         return cls(**dict_product)
 
@@ -33,11 +33,10 @@ class Product:
     @price.setter
     def price(self, new_price: int):
         if new_price <= 0:
-            print(f'{new_price} Цена не должна быть нулевая или отрицательная')
+            print("Цена не должна быть нулевая или отрицательная")
             return
         if new_price < self.__price:
             check_input = input("Изменять цену? Введите y если да, и n если нет.\n")
-            if check_input != 'y':
+            if check_input != "y":
                 return
             self.__price = new_price
-
