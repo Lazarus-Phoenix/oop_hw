@@ -1,5 +1,5 @@
 # Проект OOP Homework
-![Image alt](htmlcov/Screenshot 2024-10-29 at 19-55-41 Coverage report.png)
+![Image alt](tests/report.png)
 
 Этот проект представляет собой домашнюю работу базовый пример использования объектно-ориентированного программирования (OOP) в Python.
 

@@ -54,48 +54,7 @@ class TestProduct(unittest.TestCase):
         self.assertEqual(product.price, 100)
         self.assertIn("Цена не должна быть нулевая или отрицательная", capturedOutput.getvalue().strip())
 
-    # def test_price_setter_with_input(self):
-    #     product = Product("Товар", "", 100, 0)
-    #
-    #     # Тест с согласием на изменение цены
-    #     capturedOutput = io.StringIO()
-    #     sys.stdout = capturedOutput
-    #
-    #     # Имитация ввода пользователя
-    #     def mock_input(prompt):
-    #         return 'y'
-    #
-    #     original_input = __builtins__.input
-    #     __builtins__.input = mock_input
-    #
-    #     try:
-    #         product.price = 150
-    #     finally:
-    #         __builtins__.input = original_input
-    #
-    #     sys.stdout = sys.__stdout__
-    #     self.assertEqual(product.new_price, 150)
-    #     self.assertIn("Изменять цену? Введите y если да, и n если нет.\n", capturedOutput.getvalue().strip())
-    #
-    #     # Тест с отказом от изменения цены
-    #     capturedOutput = io.StringIO()
-    #     sys.stdout = capturedOutput
-    #
-    #     # Имитация ввода пользователя
-    #     def mock_input(prompt):
-    #         return 'n'
-    #
-    #     original_input = __builtins__.input
-    #     __builtins__.input = mock_input
-    #
-    #     try:
-    #         product.new_price = 200
-    #     finally:
-    #         __builtins__.input = original_input
-    #
-    #     sys.stdout = sys.__stdout__
-    #     self.assertEqual(product.new_price, 150)
-    #     self.assertIn("Цена не должна быть нулевая или отрицательная", capturedOutput.getvalue().strip())
+
 
 
 if __name__ == '__main__':
