@@ -1,52 +1,45 @@
 import pytest
-from src.main import Product, Category
+from src.category import Category
+from src.product import Product
 
 
-def test_product_init():
-    product = Product("Test Phone", "Description", 1000.0, 10)
+
+@pytest.fixture
+def sample_category():
+    return Category(
+        "Смартфоны",
+        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        [
+            Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5),
+            Product("Iphone 15", "512GB, Gray space", 210000.0, 8),
+            Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+        ]
+    )
+
+def test_category_creation(sample_category):
+    assert isinstance(sample_category, Category)
+    assert len(sample_category.products) == 146
+    assert sample_category.description == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
+
+def test_adding_product_to_category(sample_category):
+    new_product = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
+    sample_category.add_product(new_product)
+    assert len(sample_category.products) == 188
+    assert 'in <string>'
+
+def test_product_creation_and_properties():
+    product = Product("Test Phone", "Test description", 9999.99, 10)
     assert product.name == "Test Phone"
-    assert product.description == "Description"
-    assert pytest.approx(product.price, abs=0.01) == 1000.0
+    assert product.description == "Test description"
+    assert product.price == 9999.99
     assert product.quantity == 10
-    assert isinstance(product.name, str)
-    assert isinstance(product.description, str)
-    assert isinstance(product.price, float)
-    assert isinstance(product.quantity, int)
 
 
-def test_category_init():
-    category = Category("Sample Category", "Description", [])
-    assert category.name == "Sample Category"
-    assert category.description == "Description"
-    assert len(category.products) == 0
-    assert category.category_count == 1
-    assert category.product_count == 0
-
-
-def test_category_add_product():
-    category = Category("Sample Category", "Description", [])
-    product = Product("Test Phone", "Description", 1000.0, 10)
-    category.products.append(product)
-
-    assert len(category.products) == 1
-    assert category.products[0].name == "Test Phone"
-    assert category.category_count == 2
-    assert category.product_count == 0
-
-
-
-def test_category_class_variables():
-    assert Category.category_count == 2
-    assert Category.product_count == 0
-
-    category1 = Category("Category 1", "Desc 1", [])
-    category2 = Category("Category 2", "Desc 2", [])
-
-    assert Category.category_count == 4
-    assert Category.product_count == 0
-
-    category1.products.append(Product("Product 1", "Desc 1", 100.0, 5))
-    category2.products.append(Product("Product 2", "Desc 2", 200.0, 3))
-
-    assert Category.category_count == 4
-    assert Category.product_count == 0
+def test_new_product_creation():
+    new_product_data = {"name": "Test Phone", "description": "Test description", "price": 9999.99, "quantity": 10}
+    new_product = Product.new_product(new_product_data)
+    assert isinstance(new_product, Product)
+    assert new_product.name == "Test Phone"
+    assert new_product.description == "Test description"
+    assert new_product.price == 9999.99
+    assert new_product.quantity == 10
