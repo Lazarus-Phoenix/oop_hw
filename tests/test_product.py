@@ -54,8 +54,23 @@ class TestProduct(unittest.TestCase):
         self.assertEqual(product.price, 100)
         self.assertIn("Цена не должна быть нулевая или отрицательная", capturedOutput.getvalue().strip())
 
+    def test_product_str(self):
+        first_product = Product('Samsung', '256GB, Серый цвет, 200MP камера', 180000.0, 5 )
 
+        assert str(first_product) == 'Samsung, 180000.0 руб. Остаток: 5 шт.'
 
+class TestProductAddition(unittest.TestCase):
+    def setUp(self):
+        self.product1 = Product('','',100,5)
+        self.product2 = Product('','',200, 3)
+
+    def test_add_two_products(self):
+        result = self.product1 + self.product2
+        self.assertEqual(result, 1100)
+
+    def test_add_product_and_number(self):
+        with self.assertRaises(TypeError):
+            self.product1 + 50
 
 if __name__ == '__main__':
     unittest.main()
