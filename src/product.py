@@ -13,6 +13,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """Метод строковое отображение названия, цены, остатка на складе"""
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+
     @classmethod
     def new_product(cls, dict_product, products=None):
         """Метод добавляет новый продукт"""
