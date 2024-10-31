@@ -18,6 +18,12 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def __str__(self):
+        products_in_stock = 0
+        for product in self.__products:
+            products_in_stock += product.quantity
+        return f'{self.name}, количество продуктов: {products_in_stock} шт.'
+
     def add_product(self, product: Product = None):
         """Специальный метод передачи объекта класса в приватный атрибут"""
         if isinstance(product, Product):
