@@ -19,6 +19,7 @@ class Category:
         Category.product_count += len(products)
 
     def __str__(self):
+        """Метод строкового отображения имя категории, количество товаров"""
         products_in_stock = 0
         for product in self.__products:
             products_in_stock += product.quantity
