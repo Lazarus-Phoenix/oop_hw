@@ -1,4 +1,5 @@
 import pytest
+
 from src.product import Product
 from src.category import Category
 
@@ -47,3 +48,6 @@ def test_product_creation():
     assert product.name == "Test Product"
     assert product.price == 99
     assert product.quantity == 100
+
+def test_category_str(category):
+    assert str(category) == 'Electronics, количество продуктов: 0 шт.'
