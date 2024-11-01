@@ -15,10 +15,10 @@ class Product:
 
     def __str__(self):
         """Метод строковое отображение названия, цены, остатка на складе"""
-        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        """Метод сложения всей стоимости всего товара на складе """
+        """Метод сложения всей стоимости всего товара на складе"""
         if type(other) is Product:
             return self.__price * self.quantity + other.price * other.quantity
         raise TypeError
