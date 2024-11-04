@@ -11,7 +11,7 @@ class Category:
     product_count = 0
 
     def __init__(self, name, description, products):
-        """Метод инициализации класса категории. Задаем значения атрибутам экземпляра"""
+        """Метод инициализации класса категории"""
         self.name = name
         self.description = description
         self.__products = products if products else []
@@ -27,7 +27,7 @@ class Category:
 
     def add_product(self, product: Product = None):
         """Специальный метод добавления объекта класса в приватный атрибут,
-        через проверку принадлежности родительскому классу isinstance """
+        через проверку принадлежности родительскому классу isinstance"""
         if isinstance(product, Product):
             self.__products.append(product)
             Category.product_count += 1
