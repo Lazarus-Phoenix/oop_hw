@@ -26,7 +26,8 @@ class Category:
         return f"{self.name}, количество продуктов: {products_in_stock} шт."
 
     def add_product(self, product: Product = None):
-        """Специальный метод передачи объекта класса в приватный атрибут"""
+        """Специальный метод добавления объекта класса в приватный атрибут,
+        через проверку принадлежности родительскому классу isinstance """
         if isinstance(product, Product):
             self.__products.append(product)
             Category.product_count += 1
