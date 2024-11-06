@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс для представления продукта"""
 
     name: str
@@ -12,6 +16,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()  # Инициализатор родительского класса Mixin
 
     def __str__(self):
         """Метод строковое отображение названия, цены, остатка на складе"""
