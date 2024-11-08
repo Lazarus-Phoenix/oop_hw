@@ -18,3 +18,5 @@ class Smartphone(Product):
         if type(other) is Smartphone:
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
+
+print(Smartphone.__mro__)
