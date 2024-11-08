@@ -19,4 +19,5 @@ class Smartphone(Product):
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
 
+
 print(Smartphone.__mro__)

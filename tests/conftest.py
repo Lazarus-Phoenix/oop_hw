@@ -1,6 +1,8 @@
 import pytest
 
+from src.category import Category
 from src.lawn_grass import LawnGrass
+from src.product import Product
 from src.smartphone import Smartphone
 
 
@@ -22,3 +24,25 @@ def grass1():
 @pytest.fixture
 def grass2():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+
+@pytest.fixture
+def product_without_quantity():
+    return Product(
+        name='Samsung',
+        description='256GB, Серый цвет, 200MP камера',
+        price=180000.0,
+        quantity=1
+    )
+
+
+@pytest.fixture
+def mid_category():
+    return Category(
+        name="Смартфоны",
+        description="Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для удобства жизни",
+        products=[
+            Product('Samsung', '256GB, Серый цвет, 200MP камера', 2, 1),
+            Product('Iphone 15', '512GB, Gray space', 4, 1)
+        ]
+    )

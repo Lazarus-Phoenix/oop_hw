@@ -51,3 +51,6 @@ def test_product_creation():
 
 def test_category_str(category):
     assert str(category) == 'Electronics, количество продуктов: 0 шт.'
+
+def test_middle_price(mid_category, product_without_quantity):
+    assert mid_category.middle_price() == 3
