@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     """Класс для представления продукта"""
 
     name: str
@@ -7,11 +11,16 @@ class Product:
     quantity: int
 
     def __init__(self, name, description, price, quantity):
-        """Метод инициализации класса продукта. Задаем значения атрибутам"""
+        """Метод инициализации класса продукта. Задаем значения атрибутам,
+        с нулевым количеством, вызывает исключение"""
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity != 0:
+            self.quantity = quantity
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
+        super().__init__()  # Инициализатор родительского класса Mixin
 
     def __str__(self):
         """Метод строковое отображение названия, цены, остатка на складе"""
